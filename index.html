@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+      integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <section>
+      <div class="gridlayout">
+        <div class="titlediv">
+          <h1 class="title">CHECK CRYPTOCURRENCY PRICES AND DETAILS</h1>
+          <img class="coinclass" src="./assets/images/coinimg.png" alt="" />
+        </div>
+
+        <div class="contentdiv">
+          <div class="findiv">
+            <select id="inputtag">
+              <option>Choose the Cryptocurrency</option>
+            </select>
+            <button class="btn">Find</button>
+          </div>
+
+          <h1 class="coinName" id="title"></h1>
+
+          <div class="contdiv">
+            <div class="detailsdiv">
+              <div class="pricediv">
+                <div class="labelclass">
+                  <label id="pricelabelid">PriceUsd</label>
+                </div>
+                <p id="priceid" class="priceclass"></p>
+              </div>
+              <div class="rankdiv">
+                <div class="labelclass">
+                  <label id="ranklabelid">Rank</label>
+                </div>
+                <p id="rankid" class="rankclass"></p>
+              </div>
+              <div class="capitaldiv">
+                <div class="labelclass">
+                  <label id="capitallabelid">Market Capital</label>
+                </div>
+                <p id="capitalid" class></p>
+              </div>
+              <div class="maxsupplydiv">
+                <div class="labelclass">
+                  <label id="maxsupplylabelid">Maximum Supply</label>
+                </div>
+                <p id="maxsupplyid" class></p>
+              </div>
+            </div>
+            <div class="linkdiv">
+              <div class="labelclass">
+                <label id="linklabelid" class="labelClass"
+                  >Click the below link for full details</label
+                ><br />
+              </div>
+              <div class="atagdiv">
+                <a id="linkid" target="_blank" href=""></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      let apiOutput = document.getElementById("title");
+      let inputtag = document.getElementById("inputtag");
+      let price = document.getElementById("priceid");
+      let rank = document.getElementById("rankid");
+      let marketCapital = document.getElementById("capitalid");
+      let maxsupply = document.getElementById("maxsupplyid");
+      let linkoutput = document.getElementById("linkid");
+      let btn = document.querySelector(".btn");
+
+      inputtag.addEventListener("click", () => {
+        fetch("https://api.coincap.io/v2/assets/")
+          .then((anyvar) => anyvar.json())
+          .then((output) => {
+            console.log(output);
+            for (var i = 0; i <= 100; i++) {
+              output.data.map((coin) => {
+                let newOption = document.createElement("option");
+                newOption.innerHTML = coin.id;
+                inputtag.appendChild(newOption);
+              });
+            }
+          });
+      });
+      btn.addEventListener("click", () => {
+        fetch("https://api.coincap.io/v2/assets/" + inputtag.value)
+          .then((anyvar) => anyvar.json())
+          .then((output) => {
+            console.log(output);
+            apiOutput.innerHTML = output.data.name + " - " + output.data.symbol;
+            priceid.innerHTML = parseFloat(
+              output.data.priceUsd
+            ).toFixed(10);
+            rankid.innerHTML = output.data.rank;
+            marketCapital.innerHTML = parseFloat(
+              output.data.marketCapUsd
+            ).toFixed(4);
+            maxsupply.innerHTML =
+              output.data.maxSupply != null
+                ? parseFloat(output.data.maxSupply).toFixed(4)
+                : "No Data";
+            linkoutput.innerHTML = output.data.explorer;
+
+          });
+      });
+      linkoutput.addEventListener("click",()=>{
+        window.open(linkoutput.innerHTML,'_blank');
+      })
+
+      anime({
+        targets: ".coinclass",
+        translateX: {
+          value: 150,
+          duration: 800,
+        },
+        rotate: {
+          value: 360,
+          duration: 3500,
+          easing: "easeInOutSine",
+        },
+        scale: {
+          value: 1.2,
+          duration: 3000,
+          delay: 800,
+          easing: "easeInOutQuart",
+        },
+        direction: "alternate",
+        loop: true,
+        delay: 350, // All properties except 'scale' inherit 250ms delay
+      });
+    </script>
+  </body>
+</html>

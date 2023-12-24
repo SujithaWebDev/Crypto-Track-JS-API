@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Noto Sans', sans-serif; 
+font-family: 'Poppins', sans-serif; */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.gridlayout {
+  width: 95%;
+  margin: auto;
+  /* height: 100vh;
+  background-color: rgb(79, 94, 109); */
+}
+
+#inputtag {
+  width: 323px;
+  height: 41px;
+  border:none;
+  border-radius: 20px 20px 20px 20px;
+  padding: 10px;
+  font-size: 16px;
+}
+#inputtag option{
+  font-family: 'Poppins', sans-serif;
+}
+.pricediv,
+.rankdiv,
+.capitaldiv,
+.maxsupplydiv {
+  font-family: 'Poppins', sans-serif;
+}
+
+.linkdiv {
+  font-family: "Noto Sans", sans-serif;
+  margin: 50px 0px;
+  text-align: center;
+  border: 1px solid white;
+  background-color: darkgray;
+}
+
+.titlediv {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+select {
+  border: 2px solid #2d711a;
+}
+
+.findiv {
+  margin: 21px auto 25px;
+  text-align: center;
+}
+
+.titlediv h1 {
+  font-family: "Montserrat", sans-serif;
+  margin-top: 17px;
+  margin-left: 252px;
+  padding-right: 23px;
+  font-size: 31px;
+  color: white;
+  text-shadow: 2px 2px #4cbb17;
+}
+
+.labelclass {
+  background-color: white;
+  padding: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  /* border-radius: 3px; */
+}
+
+.atagdiv {
+  margin: 16px;
+}
+
+.linkdiv a {
+  color: #c504a0;;
+}
+
+a:hover {
+  color: #26a143;
+}
+
+/* a:visited { 
+  color: green;
+} */
+.btn {
+  background-image: linear-gradient(to right,      #267c0f 0%,      #061700 51%,      #2d711a 100%);
+  margin: 10px;
+  padding: 13px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius:20px 20px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.btn:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+p {
+  font-size: 27px;
+  margin: 12px 0px;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+}
+label{
+  color: #7D0F68;
+    font-weight: 700;
+}
+.coinName {
+  margin: 6px auto 34px auto;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-size: 46px;
+  border: 1px solid #d8d8d8;
+  color: white;
+  box-shadow: 3px 6px 4px rgba(255, 255, 255, 0.3);
+  transition: 0.3s;
+  animation-name: animec;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+
+@keyframes animec {
+  0% {
+    background-color: rgb(4, 141, 47);
+  }
+
+  50% {
+    background-color: rgb(9, 160, 19);
+  }
+
+  100% {
+    background-color: rgb(3, 86, 26);
+  }
+}
+body {
+  background-image: url(../images/bgcrypto.jpg);
+  background-size: cover;
+  -webkit-animation: slidein 100s;
+  animation: slidein 100s;
+
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
+
+@-webkit-keyframes slidein {
+  from {
+    background-position: top;
+    background-size: 3000px;
+  }
+
+  to {
+    background-position: -100px 0px;
+    background-size: 2750px;
+  }
+}
+
+@keyframes slidein {
+  from {
+    background-position: top;
+    background-size: 3000px;
+  }
+
+  to {
+    background-position: -100px 0px;
+    background-size: 2750px;
+  }
+}
+
+.coinName:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.detailsdiv {
+  height: 122px;
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+  width: 64px;
+  height: 74px;
+  margin: 0px 0px;
+}
+
+.pricediv {
+  border-radius: 2%;
+  height: 100px;
+  border: 1px solid #d8d8d8;
+  box-shadow: 3px 6px 4px rgba(255, 255, 255, 0.3);
+  transition: 0.3s;
+  width: 25%;
+}
+
+.pricediv:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.rankdiv {
+  height: 100px;
+  border: 1px solid #eee;
+  /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+  box-shadow: 3px 6px 4px rgba(255, 255, 255, 0.3);
+  transition: 0.3s;
+  width: 8%;
+}
+
+.rankdiv:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.capitaldiv {
+  height: 100px;
+  border: 1px solid #eee;
+  box-shadow: 3px 6px 4px rgba(255, 255, 255, 0.3);
+  transition: 0.3s;
+  width: 25%;
+}
+
+.capitaldiv:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.maxsupplydiv {
+  height: 100px;
+  border: 1px solid #eee;
+  box-shadow: 3px 6px 4px rgba(255, 255, 255, 0.3);
+  transition: 0.3s;
+  width: 25%;
+}
+
+.maxsupplydiv:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.linkdiv .labelClass {
+  margin: 20px 0px;
+}
+
+@media screen and (max-width: 500px) {
+  .titlediv h1 {
+    margin-top: 15px;
+    margin-left: 9px;
+    padding-right: 7px;
+    font-size: 7px;
+  }
+
+  .labelclass {
+    font-size: 9px;
+  }
+
+  p {
+    font-size: 8px;
+  }
+
+  .linkdiv a {
+    font-size: 7px;
+  }
+
+  .coinName {
+    font-size: 22px;
+  }
+
+  img {
+    width: 20px;
+    height: 23px;
+    margin: 9px 0px 0px;
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width: 850px) {
+  .titlediv h1 {
+    font-size: 20px;
+    margin-left: 43px;
+    padding-right: 11px;
+  }
+
+  img {
+    width: 41px;
+    height: 49px;
+    margin: 6px 0px 0px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  .linkdiv a {
+    font-size: 11px;
+  }
+}
